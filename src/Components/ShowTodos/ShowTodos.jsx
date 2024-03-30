@@ -25,33 +25,33 @@ const ShowTodos = () => {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-scroll">
       <Modal isOpen={isModalOpen} onClose={toggleModal} />
 
-      <div className="flex flex-col items-center justify-center w-full gap-2 mt-2">
-        {/* Mapping over todos array */}
+      <div className="allTodos flex flex-col items-center justify-center sm:w-full h-min gap-2 mt-2 ">
+        {/* Mapping over todos array  */}
         {todos.map((item) => {
           return (
             <div
               key={item.id}
-              className={`todo flex flex-col bg-white rounded-md w-full md:max-w-xl p-2 py-2 items-center justify-between ${
+              className={`todo flex flex-row bg-white rounded-md w-[100%] sm:h-full p-2 py-2 items-center justify-between ${
                 item.isCompleted ? "completed" : ""
               }`}
             >
-              <div className="flex items-center w-full">
-                <input
-                  type="checkbox"
-                  className="w-4"
-                  checked={item.isCompleted}
-                  onChange={() => handleToggleComplete(item.id)}
-                />
-                <div
-                  className={`flex-1 overflow-scroll text-lg pl-4 ${
-                    item.isCompleted ? "line-through" : ""
-                  }`}
-                >
-                  {item.todo}
-                </div>
+              <input
+                type="checkbox"
+                className="w-4"
+                checked={item.isCompleted}
+                onChange={() => handleToggleComplete(item.id)}
+              />
+              <div
+                className={`flex items-center w-[80%] p-2 overflow-scroll text-lg pl-4 ${
+                  item.isCompleted ? "line-through" : ""
+                }`}
+              >
+                {item.todo}
+              </div>
+              <div className="buttons flex">
                 <button
                   className="bg-purple-500 p-3 py-2 mx-2 rounded-md text-white hover:bg-purple-600"
                   onClick={() => handleDelete(item.id)}
@@ -64,7 +64,7 @@ const ShowTodos = () => {
         })}
 
         {/* Button to toggle modal */}
-        <div className="fixed bottom-8 right-8">
+        <div className=" absolute bottom-4 sm:bottom-40">
           <IoAddCircleOutline
             size={60}
             className="cursor-pointer bg-white rounded-full"

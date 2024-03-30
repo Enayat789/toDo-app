@@ -22,7 +22,7 @@ const Navbar = () => {
         />
         {/* Side menu */}
         {isSideMenuOpen && (
-          <div className="absolute top-full left-0 mt-2 w-full md:w-64 bg-white shadow-lg">
+          <div className="absolute top-full left-0 mt-2 w-max md:w-64 bg-white shadow-lg">
             {/* Close button */}
             <div className="flex justify-end p-2">
               <button

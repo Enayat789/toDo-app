@@ -12,7 +12,7 @@ const Addtask = () => {
   };
 
   return (
-    <div className="bg-white flex flex-col h-full justify-around items-center">
+    <div className="bg-white flex flex-col w-full sm:w-full h-full justify-around items-center">
       <Modal isOpen={isModalOpen} onClose={toggleModal} />
 
       <img src={manTodo} alt="man adding task" className="max-w-full h-auto" />

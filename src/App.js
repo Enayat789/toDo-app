@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className=" bg-gray-100 mx-auto mt-8 w-3/12 h-[80vh] flex flex-col rounded-md p-0 shadow-lg">
+        <div className=" bg-gray-100 mx-auto mt-0 sm:mt-8 w-full sm:w-4/12 h-full sm:h-[80vh] flex flex-col rounded-md p-0 shadow-lg">
           <Navbar />
           <Routes>
             <Route path="/" element={<Addtask />} />
