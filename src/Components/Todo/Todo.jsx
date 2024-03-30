@@ -33,70 +33,60 @@ const Todo = () => {
   };
 
   return (
-    <>
-      {/* <Navbar /> */}
+    <div className="container bg-purple-400 flex flex-col items-center mx-auto my-5 p-5 rounded-xl min-h-screen gap-4">
+      <h2 className="font-bold text-2xl font-mono underline text-white">
+        ADD A TODO
+      </h2>
+      <div className="bg-white add-todo flex mt-4 items-center justify-between p-3 rounded-md w-full md:w-3/4 lg:w-1/2">
+        <input
+          type="text"
+          className="w-full px-3 py-2 outline-none rounded-md"
+          onChange={handleChange}
+          value={todo}
+          placeholder="Task to be done..."
+        />
+        <button
+          className="bg-purple-500 p-3 rounded-md text-white hover:bg-purple-600"
+          onClick={handleAdd}
+        >
+          Add
+        </button>
+      </div>
 
-      {/* Main container for the todo list */}
-      <div className="container bg-purple-400 flex flex-col w-min sm:w-full  items-center mx-auto my-5 p-5 rounded-xl  min-h-[95vh] gap-4 ">
-        <h2 className="font-bold text-2xl font-mono underline text-white">
-          ADD A TODO
-        </h2>
-        <div className=" bg-white add-todo flex mt-4 items-center justify-between p-5 rounded-md">
-          <input
-            type="text"
-            className=" bg-violet-100 w-[400px] outline-none p-3 rounded-md "
-            onChange={handleChange}
-            value={todo}
-            placeholder="Task to be done..."
-          />
-          <button
-            className=" bg-purple-500 p-4 py-3  ml-6 rounded-md text-white hover:bg-purple-600"
-            onClick={handleAdd}
+      <div className="allTodos flex flex-col items-center justify-center w-full gap-2 mt-8">
+        {/* Mapping over todos array */}
+        {todos.map((item) => (
+          <div
+            key={item.id}
+            className={`todo flex flex-col bg-white rounded-md w-full md:max-w-lg lg:max-w-xl p-3 items-center justify-between ${
+              item.isCompleted ? "completed" : ""
+            }`}
           >
-            Add
-          </button>
-        </div>
-
-        {/* <h2 className=" text-lg font-semibold font-mono">Your Todos</h2> */}
-
-        {/* Container for displaying all todos */}
-        <div className="allTodos flex flex-col items-center justify-center w-full gap-2 mt-8">
-          {/* Mapping over todos array  */}
-          {todos.map((item) => {
-            return (
+            <div className="flex items-center w-full">
+              <input
+                type="checkbox"
+                className="w-4"
+                checked={item.isCompleted}
+                onChange={() => handleToggleComplete(item.id)}
+              />
               <div
-                key={item.id}
-                className={`todo flex flex-row bg-white rounded-md w-[525px] p-2 py-4 items-center justify-between ${
-                  item.isCompleted ? "completed" : ""
+                className={`flex-1 overflow-hidden text-lg pl-4 ${
+                  item.isCompleted ? "line-through" : ""
                 }`}
               >
-                <input
-                  type="checkbox"
-                  className=" w-4"
-                  checked={item.isCompleted}
-                  onChange={() => handleToggleComplete(item.id)}
-                />
-                <div
-                  className={` flex items-center w-[80%] p-2 overflow-scroll text-lg pl-4 ${
-                    item.isCompleted ? "line-through" : ""
-                  }`}
-                >
-                  {item.todo}
-                </div>
-                <div className="buttons flex">
-                  <button
-                    className=" bg-purple-500 p-3 py-2  mx-2 rounded-md text-white hover:bg-purple-600"
-                    onClick={() => handleDelete(item.id)}
-                  >
-                    Delete
-                  </button>
-                </div>
+                {item.todo}
               </div>
-            );
-          })}
-        </div>
+              <button
+                className="bg-purple-500 p-2 rounded-md text-white hover:bg-purple-600"
+                onClick={() => handleDelete(item.id)}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

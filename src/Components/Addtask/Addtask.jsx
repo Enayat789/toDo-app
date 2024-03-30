@@ -15,11 +15,11 @@ const Addtask = () => {
     <div className="bg-white flex flex-col h-full justify-around items-center">
       <Modal isOpen={isModalOpen} onClose={toggleModal} />
 
-      <img src={manTodo} alt="man adding task" className="" />
-      <div className="">
+      <img src={manTodo} alt="man adding task" className="max-w-full h-auto" />
+      <div className="mt-4">
         <IoAddCircleOutline
-          size={60}
-          className=" cursor-pointer"
+          size={40} // Adjust the size of the icon for responsiveness
+          className="cursor-pointer"
           onClick={toggleModal}
         />
       </div>

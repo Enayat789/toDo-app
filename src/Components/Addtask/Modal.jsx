@@ -23,9 +23,9 @@ const Modal = ({ isOpen, onClose }) => {
   return (
     <div className={`fixed inset-0 ${isOpen ? "" : "hidden"}`}>
       <div className="flex items-center justify-center min-h-screen">
-        <div className="modal-content bg-white w-80 h-52 flex flex-col items-center justify-evenly p-4 rounded-lg shadow-lg absolute top-52 ">
+        <div className="modal-content bg-white w-11/12 md:w-80 h-auto flex flex-col items-center justify-evenly p-4 rounded-lg shadow-lg absolute top-52 ">
           <div className="modal-header  w-full flex flex-row items-center justify-between">
-            <h2 className="text-xl font-bold">ADD A TODO</h2>
+            <h2 className="text-lg md:text-xl font-bold">ADD A TODO</h2>
             <button onClick={onClose} className="text-black text-2xl">
               X
             </button>
