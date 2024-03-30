@@ -44,7 +44,7 @@ function App() {
       {/* <Navbar /> */}
 
       {/* Main container for the todo list */}
-      <div className="container bg-purple-400 flex flex-col w-min sm:w-full  items-center mx-auto my-5 p-5 rounded-xl  min-h-[95vh] gap-4 ">
+      <div className="container bg-purple-400 flex flex-col w-min md:w-full  items-center mx-auto my-5 p-5 rounded-xl  min-h-[95vh] gap-4 ">
         <h2 className="font-bold text-2xl font-mono underline text-white">
           ADD A TODO
         </h2>
