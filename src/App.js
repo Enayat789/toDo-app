@@ -76,19 +76,19 @@ function App() {
                   onChange={() => handleToggleComplete(item.id)}
                 />
                 <div
-                  className={`flex items-start w-[68%] p-2 overflow-scroll ${
+                  className={` flex items-start w-[80%] p-2 overflow-scroll ${
                     item.isCompleted ? "line-through" : ""
                   }`}
                 >
                   {item.todo}
                 </div>
                 <div className="buttons flex">
-                  <button
+                  {/* <button
                     className=" bg-purple-500 p-3 py-2  mx-2 rounded-md text-white hover:bg-purple-600"
                     onClick={handleEdith}
                   >
                     Edit
-                  </button>
+                  </button> */}
                   <button
                     className=" bg-purple-500 p-3 py-2  mx-2 rounded-md text-white hover:bg-purple-600"
                     onClick={() => handleDelete(item.id)}
